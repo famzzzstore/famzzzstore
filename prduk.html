@@ -1,0 +1,290 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }body, html {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0e0e0e;
+  color: #ffffff;
+  scroll-behavior: smooth;
+}
+
+nav {
+  background-color: #1a1a1a;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #333;
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ffcc00;
+}
+
+header {
+  position: relative;
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #1a1a1a;
+  border: 5px solid transparent;
+  border-image: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red) 1;
+  border-image-slice: 1;
+  animation: borderRGB 10s linear infinite;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: linear-gradient(
+    90deg,
+    #7f00ff,
+    #e100ff,
+    #ff0066,
+    #ff8800,
+    #ffcc00
+  );
+  width: 150%;
+  height: 300%;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: rotate 10s linear infinite;
+  z-index: -1;
+}
+
+@keyframes borderRGB {
+  0% { border-image-source: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red); }
+  100% { border-image-source: linear-gradient(450deg, red, orange, yellow, green, blue, indigo, violet, red); }
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.slider {
+  margin-top: 30px;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding: 20px;
+}
+
+.slider img {
+  scroll-snap-align: start;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  padding: 60px 40px;
+}
+
+.product-card {
+  background: #1a1a1a;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+}
+
+.product-card img {
+  width: 100%;
+  display: block;
+}
+
+.product-content {
+  padding: 20px;
+}
+
+.product-card h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.product-card p {
+  font-size: 1rem;
+  color: #ccc;
+  margin: 10px 0 20px;
+}
+
+.button {
+  border: none;
+  outline: none;
+  background-color: #3a3a3a;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s;
+  text-decoration: none;
+  z-index: 1;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  width: 105%;
+  height: 115%;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.gradient-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 105%;
+  height: 110%;
+  overflow: hidden;
+  border-radius: inherit;
+  z-index: -2;
+  filter: blur(8px);
+}
+
+.gradient {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-image: linear-gradient(
+    90deg,
+    #7f00ff,
+    #e100ff,
+    #ff0066,
+    #ff8800,
+    #ffcc00
+  );
+  animation: rotate 4s linear infinite;
+  filter: blur(10px);
+  z-index: -3;
+}
+
+.label {
+  width: 100%;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  border-radius: 6px;
+  background-color: rgba(43, 43, 43, 1);
+  background-image: linear-gradient(180deg, #2b2b2b 0%, #444 100%);
+  position: relative;
+  z-index: 2;
+}
+
+footer {
+  background-color: #1a1a1a;
+  text-align: center;
+  padding: 40px 20px;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+@keyframes rotate {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+  </style>
+</head>
+<header>
+  <h1>FAMZZ STORE</h1>
+</header>
+  <section id="products" class="products">
+    <div class="product-card">
+      <img src="https://files.catbox.moe/c6lw3o.png" alt="Produk 1" />
+      <div class="product-content">
+        <h3>BUG WA</h3>
+        <h4> Rp : 3.000</h4>
+        <p>kami menyediakan sebuah bug atau pesan virus yang bisa membuat di penerima pesan ini menjadi blank hp nya atau tidak bisa di nyalakan kemabli</p>
+        <a href="https://wa.me/62895338367507?text=bg+mo+jasbug" class="button">
+          <span class="label">Beli Sekarang</span>
+          <span class="gradient-container"><span class="gradient"></span></span>
+        </a>
+      </div>
+    </div>
+    <div class="product-card">
+       <img src="https://files.catbox.moe/hhqg1n.png" alt="Produk 2" />
+      <div class="product-content">
+        <h3>MURBUG (MURID BUG)</h3>
+        <h4> Rp : 15.000</h4>
+        <p>kami menyediakan murid bug, dan yang join bisa mengirim bug ke orang lain debgan bebas</p>
+        <a href="https://wa.me/62895338367507?text=bang+mau+join+murbug" class="button">
+          <span class="label">Beli Sekarang</span>
+          <span class="gradient-container"><span class="gradient"></span></span>
+        </a>
+      </div>
+    </div>
+    
+    <div class="product-card">
+        <img src="https://files.catbox.moe/idakai.png" alt="Produk 2" />
+      <div class="product-content">
+        <h3>OWNBUG (OWNER BUG)</h3>
+        <h4> Rp : 25.000</h4>
+        <p>kami menyediakan owner bug, yang bisa open jasa bug dan murbug, jago nyari buyer balmond gede</p>
+        <a href="https://wa.me/62895338367507?text=bang+mau+join+ownbug" class="button">
+          <span class="label">Beli Sekarang</span>
+          <span class="gradient-container"><span class="gradient"></span></span>
+          </a>
+      </div>
+    </div>
+  </section>

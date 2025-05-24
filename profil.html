@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil Saya</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      background-color: #0e0e0e;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .profile-container {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-container::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 150%;
+      height: 300%;
+      background: linear-gradient(90deg, #7f00ff, #e100ff, #ff0066, #ff8800, #ffcc00);
+      transform: translate(-50%, -50%);
+      filter: blur(100px);
+      z-index: -1;
+      animation: rotate 10s linear infinite;
+    }
+
+    .profile-card {
+      background-color: #1a1a1a;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      border: 5px solid transparent;
+      border-image: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red) 1;
+      border-image-slice: 1;
+      animation: borderRGB 10s linear infinite;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #ffcc00;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .profile-name {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .profile-bio {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
+    .profile-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .button {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform 0.3s ease, background-color 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-4px);
+      background-color: #ffcc00;
+      color: black;
+    }
+
+    @keyframes borderRGB {
+      0% {
+        border-image-source: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);
+      }
+      100% {
+        border-image-source: linear-gradient(450deg, red, orange, yellow, green, blue, indigo, violet, red);
+      }
+    }
+
+    @keyframes rotate {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <div class="profile-card">
+      <img src="https://files.catbox.moe/97fzv3.png" alt="Foto Profil" class="profile-img" />
+      <h1 class="profile-name">FAMZZ STORE</h1>
+      <p class="profile-bio">hallo gays nama gw fahmi, umur gw 17 tahun, asli subang tapi tinggal di bekasi</p>
+      <div class="profile-links">
+        <a href="https://www.instagram.com/pamm2858?igsh=NDJrcTE4NGFuMXEz" class="button">Instagram</a>
+        <a href="https://whatsapp.com/channel/0029Vb6BqZRK0IBma9Dd8R2z" class="button">saluran wa</a>
+        <a href="https://wa.me/62895338367507" class="button">wa utama</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

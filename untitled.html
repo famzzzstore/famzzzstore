@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Button Tengah dengan Efek Warna</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      background-color: #1a1a1a;
+    }
+
+    .center-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .button {
+      border: none;
+      outline: none;
+      background-color: #3a3a3a;
+      width: 190px;
+      height: 60px;
+      font-size: 18px;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s;
+      text-decoration: none;
+      z-index: 1;
+    }
+
+    .button::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 32px 0 rgba(31, 38, 135, 0.37);
+      width: 106%;
+      height: 120%;
+      z-index: -1;
+      border-radius: inherit;
+      transition: all 0.3s;
+    }
+
+    .gradient-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 106%;
+      height: 115%;
+      overflow: hidden;
+      border-radius: inherit;
+      z-index: -2;
+      filter: blur(20px);
+      transition: all 0.3s;
+    }
+
+    .gradient {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 110%;
+      aspect-ratio: 1;
+      border-radius: 100%;
+      background-image: linear-gradient(
+        90deg,
+        hsl(226, 81%, 64%),
+        hsl(271, 81%, 64%),
+        hsl(316, 81%, 64%),
+        hsl(1, 81%, 64%),
+        hsl(46, 81%, 64%),
+        hsl(91, 81%, 64%),
+        hsl(136, 81%, 64%),
+        hsl(181, 81%, 64%)
+      );
+      animation: rotate 3s linear infinite;
+      filter: blur(10px);
+      z-index: -3;
+    }
+
+    .label {
+      width: 177px;
+      height: 55px;
+      text-align: center;
+      line-height: 45px;
+      border-radius: 22px;
+      background-color: rgba(43, 43, 43, 1);
+      background-image: linear-gradient(
+        180deg,
+        rgb(43, 43, 43) 0%,
+        rgb(68, 68, 68) 100%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .button:hover .gradient-container {
+      transform: translate(-50%, -50%) scale(0.98);
+      filter: blur(10px);
+    }
+
+    .button:hover .gradient {
+      filter: blur(10px);
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="center-container">
+    <a href="https://google.com" class="button" target="_blank" rel="noopener noreferrer">
+      <span class="label">🛒 Add to cart</span>
+      <span class="gradient-container">
+        <span class="gradient"></span>
+      </span>
+    </a>
+  </div>
+</body>
+</html>

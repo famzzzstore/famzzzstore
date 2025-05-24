@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cari Produk</title>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .search-section {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #1a1a1a;
+      border-bottom: 5px solid transparent;
+      border-image: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red) 1;
+      border-image-slice: 1;
+      animation: borderRGB 10s linear infinite;
+    }
+
+    .search-box {
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 2px solid #ffcc00;
+      background-color: #2a2a2a;
+      color: #fff;
+      width: 80%;
+      max-width: 400px;
+      outline: none;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      padding: 40px;
+    }
+
+    .product-card {
+      background: #1a1a1a;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .product-card img {
+      width: 100%;
+      display: block;
+    }
+
+    .product-content {
+      padding: 20px;
+    }
+
+    .product-card h3 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .product-card p {
+      font-size: 1rem;
+      color: #ccc;
+      margin: 10px 0 20px;
+    }
+
+    .button {
+      background-color: #3a3a3a;
+      width: 100%;
+      height: 50px;
+      font-size: 16px;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s;
+      text-decoration: none;
+      z-index: 1;
+      border: none;
+    }
+
+    .label {
+      z-index: 2;
+    }
+
+    .gradient-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 105%;
+      height: 110%;
+      overflow: hidden;
+      border-radius: inherit;
+      z-index: -2;
+      filter: blur(8px);
+    }
+
+    .gradient {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 110%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background-image: linear-gradient(90deg, #7f00ff, #e100ff, #ff0066, #ff8800, #ffcc00);
+      animation: rotate 4s linear infinite;
+      filter: blur(10px);
+      z-index: -3;
+    }
+
+    @keyframes borderRGB {
+      0% { border-image-source: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red); }
+      100% { border-image-source: linear-gradient(450deg, red, orange, yellow, green, blue, indigo, violet, red); }
+    }
+
+    @keyframes rotate {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="search-section">
+    <input type="text" id="searchInput" class="search-box" placeholder="Cari produk..." onkeyup="searchProducts()" />
+  </div>
+
+  <section id="products" class="products">
+    <div class="product-card">
+      <img src="https://files.catbox.moe/c6lw3o.png" alt="Produk 1" />
+      <div class="product-content">
+        <h3>BUG WA</h3>
+        <h4> Rp : 3.000</h4>
+        <p>kami menyediakan sebuah bug atau pesan virus yang bisa membuat di penerima pesan ini menjadi blank hp nya atau tidak bisa di nyalakan kemabli</p>
+        <a href="https://wa.me/62895338367507?text=bg+mo+jasbug" class="button">
+          <span class="label">Beli Sekarang</span>
+          <span class="gradient-container"><span class="gradient"></span></span>
+        </a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://files.catbox.moe/hhqg1n.png" alt="Produk 2" />
+      <div class="product-content">
+        <h3>MURBUG (MURID BUG)</h3>
+        <h4> Rp : 15.000</h4>
+        <p>kami menyediakan murid bug, dan yang join bisa mengirim bug ke orang lain debgan bebas</p>
+        <a href="https://wa.me/62895338367507?text=bang+mau+join+murbug" class="button">
+          <span class="label">Beli Sekarang</span>
+          <span class="gradient-container"><span class="gradient"></span></span>
+        </a>
+      </div>
+    </div>
+     <div class="product-card">
+    <img src="https://files.catbox.moe/idakai.png" alt="Produk 2" />
+      <div class="product-content">
+        <h3>OWNBUG (OWNER BUG)</h3>
+        <h4> Rp : 25.000</h4>
+        <p>kami menyediakan murid bug, dan yang join bisa mengirim bug ke orang lain debgan bebas</p>
+        <a href="https://wa.me/62895338367507?text=bang+mau+join+ownbug" class="button">
+          <span class="label">Beli Sekarang</span>
+          <span class="gradient-container"><span class="gradient"></span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function searchProducts() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const products = document.querySelectorAll("#products .product-card");
+
+      products.forEach(card => {
+        const title = card.querySelector("h3").textContent.toLowerCase();
+        const desc = card.querySelector("p").textContent.toLowerCase();
+        card.style.display = title.includes(input) || desc.includes(input) ? "block" : "none";
+      });
+    }
+  </script>
+
+</body>
+</html>
